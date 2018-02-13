@@ -49,7 +49,7 @@ public class AddressListModel {
         return "list is empty";
     }
 
-    public void writeToFile() {
+    public synchronized void writeToFile() {
         File log = new File("AddressList.txt");
         try {
             if (log.exists() == false) {
