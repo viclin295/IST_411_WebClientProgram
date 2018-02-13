@@ -57,7 +57,7 @@ public class HTTPController implements Runnable {
             req = new HTTPRequest(requestString);
 
             if (req.getOp().equals("GET")) {
-                //AddressModel addressModel = new AddressModel(req.getParams());
+
                 if (req.getURL().equals("/list")) {
                     sendResponse(socket, 200, httpView.getAddressList());
             } else if (req.getURL().equals("/data")) {
@@ -74,7 +74,6 @@ public class HTTPController implements Runnable {
                         addressListModel.add(addressModel);
                         addressListModel.writeToFile();
                         addressListModel.saveToJSON(addressModel);
-//
                     } else {
                         sendResponse(socket, 200, httpView.getErrorForm(addressModel));//go back to form but with entries
                         System.out.println(">>The form has some errors");

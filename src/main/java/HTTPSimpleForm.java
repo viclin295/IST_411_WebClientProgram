@@ -23,14 +23,11 @@ public class HTTPSimpleForm {
         ServerSocket serverSocket = new ServerSocket(12345);
         System.out.println("Waiting for connection...");
         while (true) {
-            try (Socket socket = serverSocket.accept()) {
+            Socket socket = serverSocket.accept();
                 System.out.println("Connection made");  
                 HTTPController controller = new HTTPController(socket);
-                controller.run();
-            } catch (IOException ex) {
-                //handle exception
-                System.out.println("exception during stream");
-            }
+                Thread th = new Thread(controller);
+                th.start();
         }
     }
 }

@@ -69,7 +69,7 @@ public class AddressListModel {
 
     }
 
-    public ArrayList<String> readInFile() {
+    public synchronized ArrayList<String> readInFile() {
         String fileName = "AddressList.txt";
         String line = null;
         String word = null;
