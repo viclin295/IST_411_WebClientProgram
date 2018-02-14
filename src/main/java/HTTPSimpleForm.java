@@ -28,6 +28,7 @@ public class HTTPSimpleForm {
                 HTTPController controller = new HTTPController(socket);
                 Thread th = new Thread(controller);
                 th.start();
+//            controller.run();
         }
     }
 }
